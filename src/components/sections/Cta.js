@@ -40,7 +40,7 @@ const Cta = ({
     topDivider && 'has-top-divider',
     bottomDivider && 'has-bottom-divider',
     split && 'cta-split'
-  );  
+  );
 
   return (
     <section
@@ -48,20 +48,29 @@ const Cta = ({
       className={outerClasses}
     >
       <div className="container">
-        <div
-          className={innerClasses}
-        >
+        <div className={innerClasses} style={{borderRadius: 20}}>
           <div className="cta-slogan">
             <h3 className="m-0">
-              For previewing layouts and visual?
+              Enter a URL to shorten!
               </h3>
           </div>
           <div className="cta-action">
-            <Input id="newsletter" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your best email">
-              <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
-              </svg>
-            </Input>
+            <Input style={{borderRadius: 5}} id="newsletter" type="email" label="Subscribe" labelHidden placeholder="Enter your URL" />
+            <br />
+            <p style={{ color: 'white' }}>
+              Make a custom URL
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'row' , justifyContent: 'center', alignItems: 'center' }}>
+              <div style={{ flex: 1, backgroundColor: '#ECEDED', borderRight: '2px solid #5E6D79', height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 5 }}>
+                <label style={{ color: '#242424', fontSize: 16}}>
+                  www.axon.com/
+              </label>
+              </div>
+              <div style={{ flex: 2 }}>
+                <Input style={{borderRadius: 5}} id="newsletter" type="email" label="Subscribe" labelHidden placeholder="Custom Link" />
+              </div>
+            </div>
+            <div style={{marginTop: 30, borderRadius: 5}} className="button button-primary button-wide-mobile button-sm" >Generate</div>
           </div>
         </div>
       </div>
