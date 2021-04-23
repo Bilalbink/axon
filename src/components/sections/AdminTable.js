@@ -53,7 +53,7 @@ const AdminTable = ({
   }, [])
 
   const getData = () => {
-    axios.get('https://cors-anywhere.herokuapp.com/http://axonn.xyz/api/all/')
+    axios.get('http://axonn.xyz/api/all/')
       .then((res) => {
         setUrlList(res.data)
       })
