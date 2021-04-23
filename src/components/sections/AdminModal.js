@@ -16,7 +16,7 @@ const defaultProps = {
   split: false
 }
 
-const Cta = ({
+const AdminModal = ({
   className,
   topOuterDivider,
   bottomOuterDivider,
@@ -111,11 +111,7 @@ const Cta = ({
   }
 
   return (
-    <section
-      {...props}
-      className={outerClasses}
-    >
-      <div className="container">
+      <div className="container" style={{zIndex: 2}}>
         <div className={innerClasses} style={{ borderRadius: 20 }}>
           <div className="cta-slogan">
             <h3 className="m-0">
@@ -142,7 +138,7 @@ const Cta = ({
                 <div
                   style={{ marginTop: 30, borderRadius: 5, backgroundColor: '#ECEDED', color: '#7227ED' }}
                   className="button button-primary button-wide-mobile button-sm"
-                  onClick={() => reset()}>Shorten Another
+                  onClick={() => props.closeModal()}>Done
                 </div>
               </>
               :
@@ -176,11 +172,10 @@ const Cta = ({
           </div>
         </div>
       </div>
-    </section>
   );
 }
 
-Cta.propTypes = propTypes;
-Cta.defaultProps = defaultProps;
+AdminModal.propTypes = propTypes;
+AdminModal.defaultProps = defaultProps;
 
-export default Cta;
+export default AdminModal;

@@ -5,7 +5,7 @@ import { SectionProps } from '../../utils/SectionProps';
 import Input from '../elements/Input';
 import { Modal, Button } from 'react-bootstrap';
 import axios from 'axios';
-import Cta from './Cta'
+import AdminModal from '../sections/AdminModal';
 
 const propTypes = {
   ...SectionProps.types,
@@ -30,7 +30,7 @@ const AdminTable = ({
 }) => {
 
   const [urlList, setUrlList] = useState([]);
-  const [inputModal, setInputModal] = useState(true);
+  const [inputModal, setInputModal] = useState(false);
 
   const outerClasses = classNames(
     'cta section center-content-mobile reveal-from-bottom',
@@ -49,19 +49,23 @@ const AdminTable = ({
   );
 
   useEffect(() => {
-    axios.get('http://139.179.206.45:8080/api/all/')
+    getData();
+  }, [])
+
+  const getData = () => {
+    axios.get('http://axonn.xyz/api/all/')
       .then((res) => {
         setUrlList(res.data)
       })
       .catch((error) => {
         console.warn(JSON.stringify(error));
       });
-  }, [])
+  }
 
   const deleteEntry = (index) => {
     var data = new FormData();
     data.append('name', urlList[index].name);
-    axios.post('http://139.179.206.45:8080/api/delete/', data)
+    axios.post('http://axonn.xyz/api/delete/', data)
       .then((res) => {
         let newUrlList = [...urlList];
         newUrlList.splice(index, 1);
@@ -74,6 +78,7 @@ const AdminTable = ({
 
   const closeModal = () => {
     setInputModal(false);
+    getData();
   }
 
   return (
@@ -87,7 +92,7 @@ const AdminTable = ({
             <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
               <button style={{ paddingRight: 10, background: 'none', border: 'none' }} onClick={() => closeModal()}>x</button>
             </div>
-            <Cta />
+            <AdminModal closeModal={closeModal} />
           </div>
           :
           null
@@ -97,7 +102,7 @@ const AdminTable = ({
             <div
               style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#36AF4F', color: 'white' }}
               className="button button-primary button-wide-mobile button-sm"
-              onClick={() => { setInputModal(true) }}>
+              onClick={() => { setInputModal(!inputModal) }}>
               Add
           </div>
           </div>
