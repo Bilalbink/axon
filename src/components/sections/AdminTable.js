@@ -72,7 +72,7 @@ const AdminTable = ({
       });
   }
 
-  const handleClose = () => {
+  const closeModal = () => {
     setInputModal(false);
   }
 
@@ -81,20 +81,17 @@ const AdminTable = ({
       {...props}
       className={outerClasses}
     >
-      <Modal show={inputModal} onHide={handleClose} backdrop={false} centered={true} style={{background: 'none'}}>
-        <Modal.Header closeButton>
-        </Modal.Header>
-        <Modal.Body><Cta/></Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-            </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-              </Button>
-        </Modal.Footer>
-      </Modal>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {inputModal ?
+          <div style={{ position: 'absolute', zIndex: 1, boxShadow: '0 0 20px rgba(0,0,0,0.8)', borderRadius: 10, backgroundColor: '#7227ED' }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+              <button style={{ paddingRight: 10, background: 'none', border: 'none' }} onClick={() => closeModal()}>x</button>
+            </div>
+            <Cta />
+          </div>
+          :
+          null
+        }
         <div className={innerClasses} style={{ borderRadius: 20, minWidth: 1000 }}>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
             <div
