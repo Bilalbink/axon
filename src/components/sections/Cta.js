@@ -58,7 +58,7 @@ const Cta = ({
   const setUrlText = (url) => {
     url = url.replace("www.", "");
 		if(!url.startsWith("http")){
-			url += "http://" + url
+			url = "http://" + url
 		}
     setOriginalUrl(url);
   }
