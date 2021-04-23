@@ -97,43 +97,87 @@ const AdminTable = ({
           :
           null
         }
-        <div className={innerClasses} style={{ borderRadius: 20, minWidth: 1000 }}>
-          <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
-            <div
-              style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#36AF4F', color: 'white' }}
-              className="button button-primary button-wide-mobile button-sm"
-              onClick={() => { setInputModal(!inputModal) }}>
-              Add
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className={innerClasses} style={{ borderRadius: 20, minWidth: 1000 }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+              <div
+                style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#36AF4F', color: 'white' }}
+                className="button button-primary button-wide-mobile button-sm"
+                onClick={() => { setInputModal(!inputModal) }}>
+                Add
           </div>
-          </div>
-          <table style={{ width: '100%', color: 'white', overflow: 'hidden', textAlign: 'center' }}>
-            <tr>
-              <th>Original URL</th>
-              <th>Shortened URL</th>
-              <th></th>
-            </tr>
-            {
-              urlList ?
-                urlList.map((item, index) => {
-                  return (
-                    <tr key={index} >
-                      <td style={{ textAlign: 'left', maxWidth: 200, wordWrap: 'break-word', width: '60%' }}>{item.url}</td>
-                      <td style={{ textAlign: 'left', width: '30%' }}>{'www.axonn.xyz/' + item.name}</td>
-                      <td style={{ textAlign: 'right', width: '10%' }}>
-                        <div
-                          style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#C70039', color: 'white' }}
-                          className="button button-primary button-wide-mobile button-sm"
-                          onClick={() => deleteEntry(index)}>
-                          Delete
+            </div>
+            <table style={{ width: '100%', color: 'white', overflow: 'hidden', textAlign: 'center' }}>
+              <tr>
+                <th>Original URL</th>
+                <th>Shortened URL</th>
+                <th># of Redirects</th>
+                <th>Created On</th>
+                <th></th>
+              </tr>
+              {
+                urlList ?
+                  urlList.map((item, index) => {
+                    return (
+                      <tr key={index} >
+                        <td style={{ textAlign: 'left', maxWidth: 200, wordWrap: 'break-word', width: '60%' }}>{item.url}</td>
+                        <td style={{ textAlign: 'left', width: '30%' }}>{'www.axonn.xyz/' + item.name}</td>
+                        <td style={{ textAlign: 'left', width: '30%' }}>{item.redirects ? item.redirects : '0'}</td>
+                        <td style={{ textAlign: 'left', width: '30%' }}>{item.date ? item.date : '-' }</td>
+                        <td style={{ textAlign: 'right', width: '10%' }}>
+                          <div
+                            style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#C70039', color: 'white' }}
+                            className="button button-primary button-wide-mobile button-sm"
+                            onClick={() => deleteEntry(index)}>
+                            Delete
                       </div>
-                      </td>
-                    </tr>
-                  )
-                })
-                :
-                null
-            }
-          </table>
+                        </td>
+                      </tr>
+                    )
+                  })
+                  :
+                  null
+              }
+            </table>
+          </div>
+          <div className={innerClasses} style={{ borderRadius: 20, minWidth: 1000, marginTop: 50 }}>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-end' }}>
+              <div
+                style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#36AF4F', color: 'white' }}
+                className="button button-primary button-wide-mobile button-sm"
+                onClick={() => { setInputModal(!inputModal) }}>
+                Add
+          </div>
+            </div>
+            <table style={{ width: '100%', color: 'white', overflow: 'hidden', textAlign: 'center' }}>
+              <tr>
+                <th>Original URL</th>
+                <th>Shortened URL</th>
+                <th></th>
+              </tr>
+              {
+                urlList ?
+                  urlList.map((item, index) => {
+                    return (
+                      <tr key={index} >
+                        <td style={{ textAlign: 'left', maxWidth: 200, wordWrap: 'break-word', width: '60%' }}>{item.url}</td>
+                        <td style={{ textAlign: 'left', width: '30%' }}>{'www.axonn.xyz/' + item.name}</td>
+                        <td style={{ textAlign: 'right', width: '10%' }}>
+                          <div
+                            style={{ fontSize: 10, borderRadius: 5, backgroundColor: '#C70039', color: 'white' }}
+                            className="button button-primary button-wide-mobile button-sm"
+                            onClick={() => deleteEntry(index)}>
+                            Delete
+                      </div>
+                        </td>
+                      </tr>
+                    )
+                  })
+                  :
+                  null
+              }
+            </table>
+          </div>
         </div>
       </div>
     </section>
