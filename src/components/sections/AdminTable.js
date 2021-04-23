@@ -53,7 +53,7 @@ const AdminTable = ({
   }, [])
 
   const getData = () => {
-    axios.get('http://axonn.xyz/api/all/')
+    axios.get('https://axonn.xyz/api/all/')
       .then((res) => {
         setUrlList(res.data)
       })
@@ -65,7 +65,7 @@ const AdminTable = ({
   const deleteEntry = (index) => {
     var data = new FormData();
     data.append('name', urlList[index].name);
-    axios.post('http://axonn.xyz/api/delete/', data)
+    axios.post('https://axonn.xyz/api/delete/', data)
       .then((res) => {
         let newUrlList = [...urlList];
         newUrlList.splice(index, 1);

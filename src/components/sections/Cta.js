@@ -76,7 +76,7 @@ const Cta = ({
     if (customText === '' && originalUrl !== '') {
       data.append('url', originalUrl);
 
-      axios.post('http://axonn.xyz/api/short/', data)
+      axios.post('https://axonn.xyz/api/short/', data)
         .then((res) => {
           console.log(res);
           setCustomText(res.data);
@@ -92,7 +92,7 @@ const Cta = ({
       data.append('url', originalUrl);
       data.append('name', customText);
 
-      axios.post('http://axonn.xyz/api/customShort/', data)
+      axios.post('https://axonn.xyz/api/customShort/', data)
         .then((res) => {
           console.log(res);
           setUrlFound(!urlFound);
