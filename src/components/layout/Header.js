@@ -85,8 +85,8 @@ const Header = ({
             'site-header-inner',
             bottomDivider && 'has-bottom-divider'
           )}>
-          {/* <Logo /> */}
-          <span style={{color: 'white'}}>A𝕏ON</span>
+          <Logo />
+          {/* <span style={{color: 'white'}}>A𝕏ON</span> */}
           {!hideNav &&
             <>
               <button
@@ -112,7 +112,7 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="#0" className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Admin Panel</Link>
+                        <Link to="#0" style={{borderRadius: 5}} className="button button-primary button-wide-mobile button-sm" onClick={closeMenu}>Admin Panel</Link>
                       </li>
                     </ul>}
                 </div>
