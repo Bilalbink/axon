@@ -75,8 +75,8 @@ const AdminModal = ({
     var data = new FormData();
     if (customText === '' && originalUrl !== '') {
       data.append('url', originalUrl);
-
-      axios.post('https://axonn.xyz/api/short/', data)
+      data.append('apiKey', 'bdOz4lykCPZOnMf');
+        axios.post('https://axonn.xyz/api/short/', data)
         .then((res) => {
           console.log(res);
           setCustomText(res.data);
@@ -91,7 +91,7 @@ const AdminModal = ({
     else if (originalUrl !== '') {
       data.append('url', originalUrl);
       data.append('name', customText);
-
+      data.append('apiKey', 'bdOz4lykCPZOnMf');
       axios.post('https://axonn.xyz/api/customShort/', data)
         .then((res) => {
           console.log(res);
@@ -115,7 +115,7 @@ const AdminModal = ({
         <div className={innerClasses} style={{ borderRadius: 20 }}>
           <div className="cta-slogan">
             <h3 className="m-0">
-              Enter a URL to shorten!
+              Create New Short URL
               </h3>
           </div>
           <div className="cta-action">

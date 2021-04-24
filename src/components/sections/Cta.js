@@ -75,7 +75,7 @@ const Cta = ({
     var data = new FormData();
     if (customText === '' && originalUrl !== '') {
       data.append('url', originalUrl);
-
+      data.append('apiKey', 'bdOz4lykCPZOnMf');
       axios.post('https://axonn.xyz/api/short/', data)
         .then((res) => {
           console.log(res);
@@ -91,7 +91,7 @@ const Cta = ({
     else if (originalUrl !== '') {
       data.append('url', originalUrl);
       data.append('name', customText);
-
+      data.append('apiKey', 'bdOz4lykCPZOnMf');
       axios.post('https://axonn.xyz/api/customShort/', data)
         .then((res) => {
           console.log(res);
