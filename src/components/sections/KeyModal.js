@@ -83,7 +83,7 @@ const KeyModal = ({
                 <div className="cta-action">
                     <p style={{ color: 'white' }}>
                         Enter Key Name
-                </p>
+                    </p>
                     <Input style={{ borderRadius: 5 }} value={keyName} onChange={e => setKeyText(e.target.value)} id="newsletter" type="email" label="Subscribe" labelHidden placeholder="Enter your URL" />
                     <div
                         style={{ marginTop: 30, borderRadius: 5, backgroundColor: '#ECEDED', color: '#7227ED' }}

@@ -6,6 +6,8 @@ import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 import AdminTable from './AdminTable'
+import Input from '../elements/Input';
+
 
 const propTypes = {
   ...SectionProps.types
@@ -27,6 +29,18 @@ const AdminPanel = ({
 }) => {
 
   const [videoModalActive, setVideomodalactive] = useState(false);
+  const [pin, setPin] = useState('');
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const setPinText = (pin) => {
+    setPin(pin);
+  }
+
+  const checkPin = () => {
+    if (pin === '1111') {
+      setIsAdmin(true);
+    }
+  }
 
   const openModal = (e) => {
     e.preventDefault();
@@ -58,17 +72,17 @@ const AdminPanel = ({
       {...props}
       className={outerClasses}
     >
-      <div className="container-sm">
+      <div className="container-sm" style={{ zIndex: 2, }} >
         <div className={innerClasses}>
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Welcome back <span style={{color: '#7227ED'}}>Admin</span>
+              Welcome back <span style={{ color: '#7227ED' }}>Admin</span>
             </h1>
             <div className="container-xs">
               {/* <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
                 A URL shortner
               </p> */}
-              <AdminTable/>
+              <AdminTable />
             </div>
           </div>
         </div>
