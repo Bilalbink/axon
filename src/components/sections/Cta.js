@@ -149,7 +149,7 @@ const Cta = ({
               <>
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                   <div style={{ flex: 1, backgroundColor: '#ECEDED', borderRight: '2px solid #5E6D79', height: 48, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 5 }}>
-                    <label style={{ color: '#242424', fontSize: 16 }}>
+                    <label style={{ color: '#242424', fontSize: 16, marginBottom: '0px' }}>
                       www.axonn.xyz/
                     </label>
                   </div>
